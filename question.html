@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario y Mostrar Datos</title>
+    <style>
+        .form-container, .job {
+            margin: 20px;
+        }
+        .form-container {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-container input, .form-container textarea, .form-container button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .btn-toggle {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-toggle:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <article class="job">
+        <h3 id="Puesto-display"></h3>
+        <p id="Empresa-display"></p>
+        <p id="ubicacion-display"></p>
+        <p id="Description-display"></p>
+        <a href="#" class="apply-btn">Aplicar</a>
+    </article>
+
+    <!-- Agrega más ofertas laborales aquí -->
+
+    <button class="btn-toggle" onclick="toggleForm()">Publicar Oferta</button>
+
+    <div class="form-container" id="form-container">
+        <h1 class="initial-form">Formulario de Oferta</h1>
+        <form id="form-jobs">
+            <label for="empleador">Empresa:</label>
+            <input type="text" id="empleador" name="empleador" required>
+
+            <label for="jobTitle">Título del Puesto:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+            
+            <label for="City">Ciudad:</label>
+            <input type="text" id="City" name="City" required>
+            
+            <label for="description">Descripción/Requisitos:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="archivo">Selecciona Banner (JPG o PDF opcional):</label>
+            <input type="file" id="archivo" name="archivo" accept=".jpg, .jpeg, .pdf">
+            
+            <button type="submit">Enviar Oferta</button>
+        </form>
+    </div>
+
+    <script>
+        // Función para abrir y cerrar el formulario
+        function toggleForm() {
+            const formContainer = document.getElementById('form-container');
+            const btnToggle = document.querySelector('.btn-toggle');
+            
+            if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+                formContainer.style.display = 'block';
+                btnToggle.textContent = 'Cerrar Formulario';
+            } else {
+                formContainer.style.display = 'none';
+                btnToggle.textContent = 'Publicar Oferta';
+            }
+        }
+
+        // Función para manejar el envío del formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#form-jobs').addEventListener('submit', function(event) {
+                event.preventDefault(); // Previene el envío del formulario por defecto
+
+                // Obtén los valores de los campos del formulario
+                let empresa = document.getElementById('empleador').value;
+                let puestotrabajo = document.getElementById('jobTitle').value;
+                let city = document.getElementById('City').value;
+                let description = document.getElementById('description').value;
+
+                // Muestra los datos en la página
+                document.getElementById('Empresa-display').textContent = "Empresa: " + empresa;
+                document.getElementById('Puesto-display').textContent = "Puesto: " + puestotrabajo;
+                document.getElementById('ubicacion-display').textContent = "Ciudad: " + city;
+                document.getElementById('Description-display').textContent = "Descripción/Requisitos: " + description;
+
+                // Opcional: Limpia el formulario
+                document.querySelector('#form-jobs').reset();
+            });
+        });
+    </script>
+</body>
+</html>
+

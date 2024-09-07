@@ -1,0 +1,159 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #dba6a6;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: rgb(112, 25, 25);
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+.job-listings {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.job {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.job h3 {
+    margin-top: 0;
+}
+
+.apply-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.apply-btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+footer h2 {
+    margin-top: 0;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+.form-container {
+    display: none; /* Ocultamos el formulario inicialmente */
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+}
+.btn-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.btn-toggle:hover {
+    background-color: #0056b3;
+}
+.form-container.active {
+    right: 0;
+}
+.initial-form {
+    text-align: center;
+    color: #333;
+}
+.offerForm {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+    color: #555;
+}
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+button:hover {
+    background-color: #0056b3;
+}
